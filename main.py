@@ -4,6 +4,8 @@ from starlette.middleware.cors import CORSMiddleware
 from router.users import router as router_users
 from router.readMolecules import router as router_molecules
 from router.convertMolecules import router as router_convert_molecules
+from router.searchSubstructures import router as router_search_substructures
+from router.chemistryTransformations import router as router_chemistry_transformations
 app = FastAPI()
 
 origins = [
@@ -20,3 +22,5 @@ app.add_middleware(
 app.include_router(router_users)
 app.include_router(router_molecules)
 app.include_router(router_convert_molecules)
+app.include_router(router_search_substructures)
+app.include_router(router_chemistry_transformations)

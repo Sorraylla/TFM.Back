@@ -25,6 +25,16 @@ def insert_molecule(molecule: NewMoleculeInfo):
     return manager.insert_molecule(molecule)
 
 
+@router.delete("/molecule/")
+def remove_molecule(id_molecule: str):
+    return manager.remove_molecule(id_molecule)
+
+
+@router.put("/molecule/")
+def update_molecule(mol: MoleculeInfo):
+    return manager.update_molecule(mol)
+
+
 @router.get("/molecules/")
 def get_molecule_by_user(userId: int):
     return manager.get_molecule_by_user(userId)

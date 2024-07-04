@@ -52,6 +52,20 @@ def insert_molecule(molecule: NewMoleculeInfo):
         result["id"] = str(result["_id"])
         return MoleculeInfo.parse_obj(result)
 
+
+def remove_molecule(id_molecule: str):
+    result = molecules_dao.remove_molecule(id_molecule)
+    if result:
+        return "OK"
+
+def update_molecule(mol: MoleculeInfo):
+    result = molecules_dao.update_molecule(mol)
+    if result:
+        result['id'] = str(result['_id'])
+        return MoleculeInfo.parse_obj(result)
+
+
+
 def get_molecule_by_user(userId: int):
     result = molecules_dao.get_molecule_by_user(userId)
     molecules = []
